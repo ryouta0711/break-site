@@ -118,13 +118,29 @@
     color: #fff; overflow: hidden; isolation: isolate;
   }
   .hero-bg { position: absolute; inset: 0; z-index: -2; }
-  .hero-bg img { width: 100%; height: 100%; object-fit: cover; animation: kenburns 22s ease-out forwards; }
+  .hero-bg img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transition: opacity 1.6s ease;
+  }
+  .hero-bg img.is-active { opacity: 1; animation: kenburns 9s ease-out forwards; }
+  .hero-dots { position: absolute; right: 32px; bottom: 36px; display: flex; gap: 10px; z-index: 1; }
+  .hero-dots button {
+    width: 28px; height: 4px; padding: 0; border: 0; border-radius: 2px; cursor: pointer;
+    background: rgba(255,255,255,.4); transition: background-color .3s, width .3s var(--ease);
+  }
+  .hero-dots button[aria-current="true"] { background: #fff; width: 44px; }
+  .hero-dots button::before { content: ""; display: block; margin: -12px 0; height: 28px; }
   .hero::before {
     content: ""; position: absolute; inset: 0; z-index: -1;
     background: linear-gradient(100deg, rgba(10,12,16,.82) 0%, rgba(10,12,16,.6) 45%, rgba(10,12,16,.2) 100%);
   }
   @keyframes kenburns { from { transform: scale(1.14); } to { transform: scale(1); } }
-  @media (max-width: 720px) { .hero-bg img { object-position: 78% center; } }
+  @media (max-width: 720px) {
+    .hero-bg img.pos-right { object-position: 78% center; }
+    .hero-dots { right: 20px; bottom: 34px; gap: 8px; }
+    .hero-dots button { width: 16px; }
+    .hero-dots button[aria-current="true"] { width: 28px; }
+  }
   .hero .wrap { width: 100%; padding-top: calc(var(--header-h) + 40px); padding-bottom: 120px; }
   .hero-eyebrow { display: inline-flex; align-items: center; gap: 14px; font-size: 13px; font-weight: 600; letter-spacing: .2em; color: rgba(255,255,255,.85); }
   .hero-eyebrow::before { content: ""; width: 40px; height: 1px; background: currentColor; }
@@ -398,8 +414,20 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="top" aria-label="メインビジュアル" style="padding:0">
-    <div class="hero-bg">
-      <img src="images/hero.jpg" alt="" width="1567" height="1045" fetchpriority="high">
+    <!-- スライドを増やすときは img を1行追加し、下の .hero-dots にボタンを1つ追加します -->
+    <div class="hero-bg" id="heroSlides">
+      <img class="is-active pos-right" src="images/hero.jpg" alt="" width="1567" height="1045" fetchpriority="high">
+      <img src="images/hero-2.jpg" alt="" width="1200" height="801" decoding="async">
+      <img src="images/hero-3.jpg" alt="" width="1200" height="801" decoding="async">
+      <img src="images/hero-4.jpg" alt="" width="1200" height="801" decoding="async">
+      <img src="images/hero-5.jpg" alt="" width="1200" height="801" decoding="async">
+    </div>
+    <div class="hero-dots" id="heroDots" aria-label="スライドの切り替え">
+      <button type="button" aria-label="スライド1" aria-current="true"></button>
+      <button type="button" aria-label="スライド2"></button>
+      <button type="button" aria-label="スライド3"></button>
+      <button type="button" aria-label="スライド4"></button>
+      <button type="button" aria-label="スライド5"></button>
     </div>
     <div class="wrap">
       <div class="hero-eyebrow">不動産の可能性を、もっと大きく。</div>
@@ -732,6 +760,22 @@
   }
   toggle.addEventListener('click', function () { setMenu(!document.body.classList.contains('menu-open')); });
   document.querySelectorAll('#gnav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+  // hero slideshow
+  var slides = document.querySelectorAll('#heroSlides img');
+  var dots = document.querySelectorAll('#heroDots button');
+  var current = 0, timer = null;
+  function show(i) {
+    slides[current].classList.remove('is-active');
+    dots[current].removeAttribute('aria-current');
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add('is-active');
+    dots[current].setAttribute('aria-current', 'true');
+  }
+  function start() { if (!reduce) { clearInterval(timer); timer = setInterval(function () { show(current + 1); }, 6000); } }
+  dots.forEach(function (d, i) { d.addEventListener('click', function () { show(i); start(); }); });
+  document.addEventListener('visibilitychange', function () { document.hidden ? clearInterval(timer) : start(); });
+  start();
 
   // count-up
   function countUp(el) {
