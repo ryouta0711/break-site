@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>株式会社Break｜東海3県の民泊運営・不動産売買</title>
+<meta name="description" content="株式会社Breakは、東海3県（愛知・岐阜・三重）で築古・戸建てを活かした民泊運営・管理、不動産売買・仲介・買取再販を一貫して手がけています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --text: #22201c;
+    --muted: #6b655c;
+    --line: #e8e1d6;
+    --accent: #b5542c;
+    --accent-dark: #8f3f1f;
+    --accent-soft: #f6e7de;
+    --deep: #2b3a33;
+    --shadow: 0 8px 28px rgba(60, 40, 20, .08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161412;
+      --surface: #201d1a;
+      --text: #efe9e1;
+      --muted: #aaa196;
+      --line: #35302a;
+      --accent: #e07a4f;
+      --accent-dark: #f09a72;
+      --accent-soft: #3a2519;
+      --deep: #1d2a24;
+      --shadow: 0 8px 28px rgba(0, 0, 0, .4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161412;
+    --surface: #201d1a;
+    --text: #efe9e1;
+    --muted: #aaa196;
+    --line: #35302a;
+    --accent: #e07a4f;
+    --accent-dark: #f09a72;
+    --accent-soft: #3a2519;
+    --deep: #1d2a24;
+    --shadow: 0 8px 28px rgba(0, 0, 0, .4);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans JP", system-ui, sans-serif;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  .serif { font-family: "Noto Serif JP", serif; }
+
+  /* nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; gap: 22px; height: 60px; }
+  nav .logo { font-weight: 900; font-size: 20px; text-decoration: none; letter-spacing: .02em; margin-right: auto; white-space: nowrap; }
+  nav .logo span { color: var(--accent); }
+  nav a.link { color: var(--muted); text-decoration: none; font-size: 14px; white-space: nowrap; }
+  nav a.link:hover { color: var(--text); }
+  .btn {
+    display: inline-block; padding: 12px 26px; border-radius: 999px;
+    background: var(--accent); color: #fff; text-decoration: none;
+    font-weight: 700; font-size: 15px; white-space: nowrap;
+    transition: background .2s, transform .2s;
+  }
+  .btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .btn.ghost { background: transparent; color: var(--text); border: 1.5px solid var(--line); }
+  .btn.ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+  nav .btn { padding: 8px 18px; font-size: 14px; }
+  @media (max-width: 760px) { nav a.link { display: none; } }
+
+  /* hero */
+  .hero { padding: 96px 0 80px; position: relative; overflow: hidden; }
+  .hero::after {
+    content: ""; position: absolute; right: -120px; top: -80px; width: 460px; height: 460px;
+    border-radius: 50%; background: var(--accent-soft); z-index: -1;
+  }
+  .eyebrow { color: var(--accent); font-weight: 700; font-size: 14px; letter-spacing: .12em; }
+  .hero h1 { font-size: clamp(32px, 6.4vw, 58px); line-height: 1.35; margin: 14px 0 22px; font-weight: 700; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p { color: var(--muted); font-size: clamp(15px, 2.2vw, 18px); max-width: 600px; margin: 0 0 34px; }
+  .hero .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 64px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; box-shadow: var(--shadow); }
+  .stat b { display: block; font-size: 34px; font-weight: 900; color: var(--accent); line-height: 1.2; }
+  .stat b small { font-size: 16px; margin-left: 2px; }
+  .stat span { color: var(--muted); font-size: 14px; }
+
+  /* sections */
+  section { padding: 72px 0; }
+  .label { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: .14em; }
+  h2 { font-size: clamp(25px, 4.4vw, 36px); margin: 6px 0 18px; line-height: 1.45; }
+  .lead { color: var(--muted); margin: 0 0 36px; max-width: 680px; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 18px; padding: 28px; box-shadow: var(--shadow);
+  }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card h3 { margin: 10px 0 8px; font-size: 19px; line-height: 1.5; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .num { font-weight: 900; font-size: 13px; color: var(--accent); letter-spacing: .1em; }
+
+  /* services */
+  .svc { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .svc .card.main { border-top: 4px solid var(--accent); }
+  .svc ul { margin: 14px 0 0; padding-left: 1.2em; color: var(--muted); font-size: 15px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .chip { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px; font-size: 14px; }
+
+  /* band */
+  .band { background: var(--deep); color: #f3efe8; border-radius: 24px; padding: 56px 32px; }
+  .band .label { color: #f0a47f; }
+  .band p { color: #cfc8bd; }
+  .band .grid .card { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); box-shadow: none; }
+  .band .grid .card p { color: #cfc8bd; }
+
+  /* flow */
+  .flow { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); counter-reset: f; }
+  .flow .card { padding: 24px; position: relative; }
+  .flow .card::before {
+    counter-increment: f; content: "0" counter(f);
+    font-weight: 900; font-size: 28px; color: var(--accent); line-height: 1;
+  }
+
+  /* message */
+  .message { display: grid; gap: 32px; grid-template-columns: 1fr; }
+  .message blockquote { margin: 0; font-size: clamp(17px, 2.6vw, 21px); line-height: 2; }
+  .message .sign { margin-top: 18px; color: var(--muted); font-size: 15px; }
+  .message .sign b { color: var(--text); font-size: 18px; margin-left: 8px; }
+
+  /* company */
+  table.company { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.company th, table.company td { text-align: left; padding: 16px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.company th { width: 32%; color: var(--muted); font-weight: 500; white-space: nowrap; }
+  @media (max-width: 560px) {
+    table.company th, table.company td { display: block; width: 100%; padding: 4px 0; border: 0; }
+    table.company tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  }
+
+  /* contact */
+  .contact { text-align: center; padding: 64px 24px; border-radius: 24px; background: var(--accent); color: #fff; margin-bottom: 72px; }
+  .contact h2 { margin-top: 0; }
+  .contact p { opacity: .92; margin: 0 auto 30px; max-width: 560px; }
+  .contact .actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .contact .btn { background: #fff; color: var(--accent-dark); }
+  .contact .btn:hover { background: #fff4ee; }
+  .contact .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); }
+  .contact .tel { font-size: 13px; opacity: .85; margin-top: 18px; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 44px; color: var(--muted); font-size: 13px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><span>B</span>reak</a>
+    <a class="link" href="#about">私たちについて</a>
+    <a class="link" href="#service">事業内容</a>
+    <a class="link" href="#strength">強み</a>
+    <a class="link" href="#company">会社概要</a>
+    <a class="btn" href="#contact">お問い合わせ</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">東海3県の民泊運営・不動産売買</div>
+    <h1 class="serif">眠っている家に、<br><em>もう一度</em>人が集まる価値を。</h1>
+    <p>株式会社Breakは、愛知・岐阜・三重の築古・戸建てを再生し、民泊として運営するプロフェッショナルです。物件の購入から企画・リフォーム・運営まで、ワンストップで「儲かる大家」をサポートします。</p>
+    <div class="actions">
+      <a class="btn" href="#contact">無料で相談する</a>
+      <a class="btn ghost" href="#service">事業内容を見る</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>50<small>件以上</small></b><span>空き家の購入・再生実績</span></div>
+      <div class="stat"><b>約30<small>施設</small></b><span>OYADOYA HOTEL 運営数</span></div>
+      <div class="stat"><b>3<small>県</small></b><span>愛知・岐阜・三重に対応</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <div class="label">ABOUT US</div>
+    <h2 class="serif">儲かる不動産大家が増える社会へ。</h2>
+    <p class="lead">築年数が古い、戸建てで賃貸が付きにくい ── そんな物件こそ、民泊なら他にない魅力に変えられます。私たちは自ら物件を所有・運営する「プレイヤー」として培ったノウハウで、オーナー様の収益づくりに伴走します。</p>
+    <div class="grid">
+      <div class="card"><div class="num">POINT 01</div><h3>築古・戸建てに特化</h3><p>一般的なホテルとは違う、暮らすように泊まれる宿。古さを個性に変える差別化された民泊をつくります。</p></div>
+      <div class="card"><div class="num">POINT 02</div><h3>売買から運営まで一貫</h3><p>2023年に宅地建物取引業を取得。物件探しから企画・内装・運営まで、窓口ひとつで完結します。</p></div>
+      <div class="card"><div class="num">POINT 03</div><h3>大家としての実体験</h3><p>代表自身が個人大家として賃貸経営を経験。現場で得たリアルな知見をお伝えします。</p></div>
+    </div>
+  </section>
+
+  <section id="service">
+    <div class="label">SERVICE</div>
+    <h2 class="serif">事業内容</h2>
+    <p class="lead">民泊と不動産、ふたつの軸で物件の価値を最大化します。</p>
+    <div class="svc">
+      <div class="card main">
+        <div class="num">BUSINESS 01</div>
+        <h3>民泊運営・管理事業</h3>
+        <p>賃貸物件を購入して民泊を開設・運営。他社様が所有する民泊物件の管理・運営代行や、収益改善のご提案も行います。</p>
+        <ul>
+          <li>民泊の開業サポート・運用代行</li>
+          <li>既存民泊の収益改善コンサルティング</li>
+          <li>民泊FC「OYADOYA HOTEL」の展開</li>
+        </ul>
+      </div>
+      <div class="card main">
+        <div class="num">BUSINESS 02</div>
+        <h3>不動産賃貸・売買業</h3>
+        <p>東海3県の築古・戸建てを中心に自社物件を所有・賃貸。一棟アパート・マンションの売買も取り扱っています。</p>
+        <ul>
+          <li>売買仲介・買取再販</li>
+          <li>空き家の買取</li>
+          <li>賃貸管理・内装リフォーム</li>
+        </ul>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip">不動産講師</span>
+      <span class="chip">不動産セミナー</span>
+      <span class="chip">物件メルマガ</span>
+      <span class="chip">民泊ノウハウ発信</span>
+      <span class="chip">賃貸・売却ガイド</span>
+    </div>
+  </section>
+
+  <section id="strength">
+    <div class="band">
+      <div class="label">WHY BREAK</div>
+      <h2 class="serif">選ばれる理由</h2>
+      <p class="lead">「買って終わり」「任せて終わり」にしない。自社で運営しているからこそ、数字に強い提案ができます。</p>
+      <div class="grid">
+        <div class="card"><h3>自社運営の実績データ</h3><p>約30施設を運営するOYADOYA HOTELで蓄積した稼働・単価のノウハウを、物件選びと企画に活かします。</p></div>
+        <div class="card"><h3>空き家再生の目利き</h3><p>累計50件以上の空き家を購入・再生。民泊に向く物件・向かない物件を見極めます。</p></div>
+        <div class="card"><h3>地域密着の東海エリア</h3><p>名古屋を拠点に、愛知・岐阜・三重の地域事情を踏まえたスピーディーな対応が可能です。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="label">FLOW</div>
+    <h2 class="serif">ご相談の流れ</h2>
+    <div class="flow">
+      <div class="card"><h3>お問い合わせ</h3><p>お電話・メールでお気軽にご連絡ください。</p></div>
+      <div class="card"><h3>ヒアリング</h3><p>物件やご予算、目指す収益をお伺いします。</p></div>
+      <div class="card"><h3>ご提案</h3><p>物件の活用方法と収支計画をご提案します。</p></div>
+      <div class="card"><h3>開業・運営</h3><p>リフォームから運営まで責任を持って伴走します。</p></div>
+    </div>
+  </section>
+
+  <section id="message">
+    <div class="label">MESSAGE</div>
+    <h2 class="serif">代表メッセージ</h2>
+    <div class="card message">
+      <div>
+        <blockquote class="serif">不動産は、正しく活かせば人生の選択肢を広げてくれる資産です。<br>私自身、一人の大家として悩み、学び、挑戦してきました。その経験のすべてを、これから大家を目指す方、物件の活かし方に悩むオーナー様のために注ぎます。</blockquote>
+        <div class="sign">株式会社Break 代表取締役<b>吉岡 良太</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="company">
+    <div class="label">COMPANY</div>
+    <h2 class="serif">会社概要</h2>
+    <div class="card">
+      <table class="company">
+        <tr><th>会社名</th><td>株式会社Break</td></tr>
+        <tr><th>代表者</th><td>代表取締役 吉岡 良太</td></tr>
+        <tr><th>所在地</th><td>〒462-0843<br>愛知県名古屋市北区田幡二丁目8番9号 2F</td></tr>
+        <tr><th>TEL / FAX</th><td>TEL 052-910-3070 / FAX 052-910-3071</td></tr>
+        <tr><th>メール</th><td><a href="mailto:info@break-est.co.jp">info@break-est.co.jp</a></td></tr>
+        <tr><th>免許番号</th><td>宅地建物取引業 愛知県知事(1)第25651号</td></tr>
+        <tr><th>事業内容</th><td>民泊運営・管理事業／不動産賃貸・売買業／売買仲介／買取再販／内装リフォーム／不動産講師・セミナー／民泊FC（OYADOYA HOTEL）</td></tr>
+        <tr><th>所属団体</th><td><a href="https://www.ooyanokai.com/" target="_blank" rel="noopener">一般社団法人 全国大家の会</a></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <h2 class="serif">物件のこと、まずはご相談ください。</h2>
+    <p>民泊の開業・運営代行、空き家の売却・活用、物件購入のご相談など、お気軽にお問い合わせください。</p>
+    <div class="actions">
+      <a class="btn" href="tel:0529103070">📞 052-910-3070</a>
+      <a class="btn ghost" href="mailto:info@break-est.co.jp?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">✉️ メールで問い合わせる</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>株式会社Break｜愛知県名古屋市北区田幡二丁目8番9号 2F</span>
+    <span>© 2026 Break Inc.</span>
+  </div>
+</footer>
+
+</body>
+</html>
