@@ -260,7 +260,24 @@
   .feature .ico { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-soft); display: grid; place-items: center; font-size: 22px; margin-bottom: 14px; }
   .feature h3 { font-size: 17px; margin: 0 0 8px; line-height: 1.5; }
   .feature p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+  .owner-band {
+    display: grid; grid-template-columns: 1fr 1.15fr; margin-top: 56px;
+    background: var(--bg-soft); border-radius: 20px; overflow: hidden;
+  }
+  .owner-media { margin: 0; min-height: 100%; }
+  .owner-media img { width: 100%; height: 100%; object-fit: cover; }
+  .owner-body { padding: 52px 52px 56px; }
+  .owner-body h3 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 900; line-height: 1.5; margin: 12px 0 16px; }
+  .owner-body p { color: var(--ink-2); margin: 0 0 28px; }
+  .owner-body .links { display: flex; gap: 12px; flex-wrap: wrap; }
   @media (max-width: 1000px) { .features { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 860px) {
+    .owner-band { grid-template-columns: 1fr; }
+    .owner-media { aspect-ratio: 16 / 10; }
+    .owner-body { padding: 32px 24px 36px; }
+    .owner-body h3 { font-size: 19px; }
+    .owner-body .btn { white-space: normal; text-align: center; }
+  }
   @media (max-width: 720px) {
     .oyadoya-head { grid-template-columns: 1fr; }
     .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; height: auto; }
@@ -555,7 +572,20 @@
         <div class="feature reveal"><div class="ico" aria-hidden="true">🏠</div><h3>家族で楽しめる宿泊空間</h3><p>ほとんどが1棟貸し。専用駐車場、アメニティ、洗濯設備も完備しています。</p></div>
         <div class="feature reveal d1"><div class="ico" aria-hidden="true">🧗</div><h3>子どもが遊べる設備</h3><p>ボルダリングウォールのある施設や、ベビーベッドを備えた施設もあります。</p></div>
         <div class="feature reveal d2"><div class="ico" aria-hidden="true">👨‍👩‍👧‍👦</div><h3>大人数でも泊まれる</h3><p>3世代旅行や家族ぐるみの旅行に。最大17名まで宿泊できる施設もあります。</p></div>
-        <div class="feature reveal d3"><div class="ico" aria-hidden="true">📍</div><h3>東海エリアで展開</h3><p>名古屋市を中心に、愛知県・岐阜県で施設を展開しています。</p></div>
+        <div class="feature reveal d3"><div class="ico" aria-hidden="true">🗾</div><h3>東海から、全国へ。</h3><p>現在は愛知県・岐阜県で展開中。今後は全国への展開を目指しています。</p></div>
+      </div>
+
+      <div class="owner-band reveal">
+        <figure class="owner-media"><img src="images/stay-gifu.jpg" alt="マンションの1室を活用した宿泊施設のリビング（岐阜市）" width="1024" height="684" loading="lazy"></figure>
+        <div class="owner-body">
+          <div class="sec-label">FOR OWNERS</div>
+          <h3>1棟マンションの空き部屋でも、<br>OYADOYA HOTELに。</h3>
+          <p>1棟まるごとでなくても大丈夫。空室が続いているマンションのお部屋を、親子で楽しめる宿泊施設として活用できます。開業のご相談から運営まで、Breakがサポートします。</p>
+          <div class="links">
+            <a class="btn btn-primary" href="mailto:info@break-est.co.jp?subject=【空き部屋の民泊活用のご相談】">空き部屋の活用を相談する <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-outline" href="https://break-est.co.jp/lp/oyadoya-fc-lp/" target="_blank" rel="noopener">FCについて <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
