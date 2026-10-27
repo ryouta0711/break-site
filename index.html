@@ -199,6 +199,11 @@
   }
   .concept .big span { background: linear-gradient(transparent 68%, var(--accent-soft) 68%); }
   .concept p { color: var(--ink-2); max-width: 760px; margin: 0 auto; font-size: clamp(15px, 1.7vw, 17px); line-height: 2.2; }
+  @media (max-width: 720px) {
+    .concept .big { font-size: 23px; }
+    .concept p:not(.big) { text-align: left; }
+    .concept p:not(.big) br { display: none; }
+  }
 
   /* ---------- business ---------- */
   .business { background: var(--bg-soft); }
@@ -439,8 +444,8 @@
   <section class="concept" id="about">
     <div class="wrap">
       <div class="sec-label reveal">ABOUT US</div>
-      <p class="big reveal d1"><span>儲かる不動産大家が</span><br><span>溢れる世の中へ。</span></p>
-      <p class="reveal d2">Breakでは、不動産投資を始めたい人、始めたものの課題を感じている人のための事業を展開しています。<br>宅建業も取得済みなので、売買から企画運営までトータルでサポートいたします。</p>
+      <p class="big reveal d1"><span>不動産投資で、</span><br><span>失敗する大家をなくしたい。</span></p>
+      <p class="reveal d2">不動産投資の失敗の多くは、物件を買う前に決まっています。<br>Breakは自ら空き家を50件以上再生し、34施設を運営してきた経験から、<br>「買うべき物件」だけでなく「買うべきでない物件」も率直にお伝えします。<br>宅建業も取得済みなので、購入前の判断から運営までトータルで伴走します。</p>
     </div>
   </section>
 
