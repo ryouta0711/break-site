@@ -135,12 +135,19 @@
     background: linear-gradient(100deg, rgba(10,12,16,.82) 0%, rgba(10,12,16,.6) 45%, rgba(10,12,16,.2) 100%);
   }
   @keyframes kenburns { from { transform: scale(1.14); } to { transform: scale(1); } }
+  /* phones: photo shown small (3:2) on top, copy on a dark band below */
   @media (max-width: 720px) {
-    .hero-bg img.pos-right { object-position: 78% center; }
-    .hero-dots { right: 20px; bottom: 34px; gap: 8px; }
+    .hero { display: block; min-height: 0; padding-top: var(--header-h) !important; }
+    .hero::before { background: var(--ink); }
+    .hero-bg { position: relative; inset: auto; z-index: 0; aspect-ratio: 3 / 2; overflow: hidden; }
+    .hero-bg img.is-active { animation-name: kenburns-sm; }
+    section.hero > .wrap { padding-top: 36px; padding-bottom: 88px; }
+    .hero-dots { top: calc(var(--header-h) + 100vw * 2 / 3 - 22px); bottom: auto; right: 16px; gap: 8px; }
     .hero-dots button { width: 16px; }
     .hero-dots button[aria-current="true"] { width: 28px; }
+    section.hero .scroll-cue { display: none; }
   }
+  @keyframes kenburns-sm { from { transform: scale(1.05); } to { transform: scale(1); } }
   .hero .wrap { width: 100%; padding-top: calc(var(--header-h) + 40px); padding-bottom: 120px; }
   .hero-eyebrow { display: inline-flex; align-items: center; gap: 14px; font-size: 13px; font-weight: 600; letter-spacing: .2em; color: rgba(255,255,255,.85); }
   .hero-eyebrow::before { content: ""; width: 40px; height: 1px; background: currentColor; }
